@@ -47,17 +47,19 @@ public class fragment_room_data extends Fragment {
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        //Adding dummy data
         RoomData.add(new RoomData("today", "CO2: 3800ppm, Temp: 20.3C. Humidity: 48%"));
 
+        //Assigning adapter to the recyclerview
         DataAdapter adapter = new DataAdapter(RoomData);
-
         recyclerView.setAdapter(adapter);
+        //Getting instance of button, but hiding it as it's not used here
         mainFab = requireActivity().findViewById(R.id.main_fab);
         mainFab.hide();
 
+        //Toast to show that data has passed via from previous fragment via arguments
         Context context = getContext();
         int duration = Toast.LENGTH_SHORT;
-
         Toast toast = Toast.makeText(context, getArguments().getString("roomName"), duration);
         toast.show();
 

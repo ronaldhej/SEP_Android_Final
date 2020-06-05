@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        mainFab = Objects.requireNonNull(getActivity()).findViewById(R.id.main_fab);
+        mainFab = requireActivity().findViewById(R.id.main_fab);
         mainFab.hide();
 
         return view;

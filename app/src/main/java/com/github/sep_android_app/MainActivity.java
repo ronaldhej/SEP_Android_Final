@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_rooms, R.id.nav_admin, R.id.nav_alerts, R.id.nav_home, R.id.nav_users, R.id.nav_notifications)
                 .setDrawerLayout(drawer)
                 .build();
+        // Adding menu items to the sidebar
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         mainFab = findViewById(R.id.main_fab);

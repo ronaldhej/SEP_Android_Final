@@ -21,6 +21,7 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
         this.alerts = alerts;
     }
 
+    //Sets up a viewholder which inflates the item template
     @NonNull
     @Override
     public AlertAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,6 +30,7 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
+    //Binding data passed into the adapter to each instance of the items
     @Override
     public void onBindViewHolder(@NonNull AlertAdapter.ViewHolder holder, int position) {
         holder.alert.setText(alerts.get(position).getAlert());
@@ -40,6 +42,7 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
         return alerts.size();
     }
 
+    //Gets the id of the fields in the viewholder item to later be filled via the onBindViewholder
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView alert;

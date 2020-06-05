@@ -24,6 +24,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
         this.onClickListener = onClickListener;
     }
 
+    //Creating item template
     @NonNull
     @Override
     public RoomAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,16 +33,17 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
         return new ViewHolder(view, onClickListener);
     }
 
+    //Binding data to items
     @Override
     public void onBindViewHolder(@NonNull RoomAdapter.ViewHolder holder, int position) {
         holder.name.setText(rooms.get(position).getName());
-
     }
 
     public int getItemCount() {
         return rooms.size();
     }
 
+    //Provides instance of buttons and fields for binding use
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView name;
@@ -63,6 +65,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
             btn_view_data.setOnClickListener(this);
         }
 
+        //Implementation of onClick interface for room adapter
         @Override
         public void onClick(View itemView) {
             onClickListener.onClick(getAdapterPosition(), itemView);

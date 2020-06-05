@@ -53,6 +53,7 @@ public class fragment_users extends Fragment implements UserAdapter.onClickListe
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        //Dummy data
         users.add(new User("Ronald", "bruh"));
         users.add(new User("Johnson", "bruh"));
         users.add(new User("Ronald", "bruh"));
@@ -72,7 +73,7 @@ public class fragment_users extends Fragment implements UserAdapter.onClickListe
         // Setting adapter to generate card items in recycler
         recyclerView.setAdapter(adapter);
         //Customizing FAB
-        mainFab = Objects.requireNonNull(getActivity()).findViewById(R.id.main_fab);
+        mainFab = requireActivity().findViewById(R.id.main_fab);
         mainFab.setImageResource(R.drawable.ic_add);
 
         // Setting FAB to open create user dialog
