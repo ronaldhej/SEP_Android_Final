@@ -89,6 +89,11 @@ public class fragment_rooms extends Fragment implements RoomAdapter.onClickListe
         switch (view.getId()) {
             case R.id.edit_room_button:
                 Log.d(TAG, "Edit room button pressed at " + position + " " + rooms.get(position).getName());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                builder.setView(inflater.inflate(R.layout.dialog_edit_room, null));
+                builder.create();
+                builder.show();
                 break;
             case R.id.delete_room_button:
                 Log.d(TAG, "Delete room button pressed at " + position + " " + rooms.get(position).getName());
