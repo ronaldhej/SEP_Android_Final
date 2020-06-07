@@ -48,7 +48,6 @@ public class fragment_room_data extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         //Adding dummy data
-        RoomData.add(new RoomData("today", "CO2: 3800ppm, Temp: 20.3C. Humidity: 48%"));
 
         //Assigning adapter to the recyclerview
         DataAdapter adapter = new DataAdapter(RoomData);

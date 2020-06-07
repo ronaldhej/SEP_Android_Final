@@ -25,6 +25,7 @@ import android.widget.EditText;
 
 import com.github.sep_android_app.R;
 import com.github.sep_android_app.adapters.RoomAdapter;
+import com.github.sep_android_app.clientAPI.APIRepository;
 import com.github.sep_android_app.data.model.Room;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -43,6 +44,7 @@ public class fragment_rooms extends Fragment implements RoomAdapter.onClickListe
     private List<Room> rooms = new ArrayList<>();
     private RecyclerView recyclerView;
     public RoomAdapter adapter;
+    private APIRepository client = new APIRepository();
 
     public static fragment_rooms newInstance() {
         return new fragment_rooms();
@@ -98,6 +100,7 @@ public class fragment_rooms extends Fragment implements RoomAdapter.onClickListe
                 break;
             case R.id.delete_room_button:
                 Log.d(TAG, "Delete room button pressed at " + position + " " + rooms.get(position).getName());
+                client.deleteRoom(position);
                 break;
             case R.id.view_data_button:
                 Log.d(TAG, "View data button pressed at " + position + " " + rooms.get(position).getName());

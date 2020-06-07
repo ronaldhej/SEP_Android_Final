@@ -257,4 +257,8 @@ public class APIRepository
         });
     }
 
+    public void deleteRoom(int position) {
+
+    };
+
 }
