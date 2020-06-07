@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ public class fragment_alerts extends Fragment {
         alerts.add(new Alert("Too cold", "ya boi daniel"));
         alerts.add(new Alert("Too humid", "Damn daniel"));
         alerts.add(new Alert("Tornado warning", "all of them"));
+        Log.d("credit", "ViewHolder: " + R.string.r_credit);
 
 
         //Assigning adapter for the recyclerview

@@ -1,5 +1,6 @@
 package com.github.sep_android_app.adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_data_entry, parent, false);
+        Log.d("credit", "ViewHolder: " + R.string.r_credit);
         return new ViewHolder(view);
     }
 
@@ -32,7 +34,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull DataAdapter.ViewHolder holder, int position) {
         holder.date.setText(RoomData.get(position).getDate());
-        holder.value.setText(RoomData.get(position).getValue());
     }
 
     //Getting the fields for use in binding

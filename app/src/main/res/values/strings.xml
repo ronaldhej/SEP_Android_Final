@@ -46,4 +46,9 @@
     <string name="date">Date</string>
     <string name="string_value">Value</string>
     <string name="average_temperature">Average Temperature</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //Credits
+    <string name="r_credit">Done by Ronald</string>
 </resources>

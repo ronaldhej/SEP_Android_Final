@@ -1,5 +1,6 @@
 package com.github.sep_android_app.adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
 
-    private List<Room> rooms;
+    public List<Room> rooms;
     private onClickListener onClickListener;
 
     public RoomAdapter(List<Room> rooms, onClickListener onClickListener) {
@@ -59,6 +60,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
             btn_delete = itemView.findViewById(R.id.delete_room_button);
             btn_edit = itemView.findViewById(R.id.edit_room_button);
             btn_view_data = itemView.findViewById(R.id.view_data_button);
+            Log.d("credit", "ViewHolder: " + R.string.r_credit);
             // Assigning same clickListener to all buttons, specific actions handled in fragment controller
             btn_delete.setOnClickListener(this);
             btn_edit.setOnClickListener(this);
@@ -77,4 +79,5 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
     public interface onClickListener {
         void onClick(int position, View view);
     }
+
 }

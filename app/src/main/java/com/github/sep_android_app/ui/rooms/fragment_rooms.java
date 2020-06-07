@@ -1,5 +1,8 @@
 package com.github.sep_android_app.ui.rooms;
 
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.AlertDialog;
@@ -8,9 +11,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.github.sep_android_app.R;
 import com.github.sep_android_app.adapters.RoomAdapter;
@@ -25,6 +29,7 @@ import com.github.sep_android_app.data.model.Room;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,6 +42,7 @@ public class fragment_rooms extends Fragment implements RoomAdapter.onClickListe
     private FloatingActionButton mainFab;
     private List<Room> rooms = new ArrayList<>();
     private RecyclerView recyclerView;
+    public RoomAdapter adapter;
 
     public static fragment_rooms newInstance() {
         return new fragment_rooms();
@@ -50,26 +56,16 @@ public class fragment_rooms extends Fragment implements RoomAdapter.onClickListe
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-        rooms.add(new Room("Livingroom"));
-
-        RoomAdapter adapter = new RoomAdapter(rooms, this);
-
+        adapter = new RoomAdapter(rooms, this);
         recyclerView.setAdapter(adapter);
         mainFab = requireActivity().findViewById(R.id.main_fab);
+        Log.d("credit", "ViewHolder: " + R.string.r_credit);
         mainFab.setImageResource(R.drawable.ic_add);
         // Setting specific FAB onClick
         mainFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                LayoutInflater inflater = getActivity().getLayoutInflater();
-
-                builder.setView(inflater.inflate(R.layout.dialog_create_room, null));
-                Log.d(TAG, "Trying to inflate dialog");
-                builder.create();
-                builder.show();
+                Navigation.findNavController(getView()).navigate(R.id.action_nav_rooms_to_fragmentCreateRoom);
             }
         });
         mainFab.show();
@@ -80,7 +76,12 @@ public class fragment_rooms extends Fragment implements RoomAdapter.onClickListe
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(FragmentRoomsViewModel.class);
-        // TODO: Use the ViewModel
+        if (getArguments().get("createdRoomName")!= null) {
+            rooms.add(new Room((String) getArguments().get("createdRoomName")));
+            adapter = new RoomAdapter(rooms, this);
+            recyclerView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     // Handling different on click behaviour depending on ID of the button in the item_room
