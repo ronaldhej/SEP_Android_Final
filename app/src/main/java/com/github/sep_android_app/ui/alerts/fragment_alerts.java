@@ -34,10 +34,12 @@ public class fragment_alerts extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_alerts, container, false);
+        //Providing link to recyclerview and doing optimisations as the size shouldn't change
         recyclerView = view.findViewById(R.id.recyclerViewAlert);
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        //Adding dummy data
         List<Alert> alerts = new ArrayList<>();
         alerts.add(new Alert("Tornado warning", "all of them"));
         alerts.add(new Alert("fire", "bathroom"));
@@ -49,6 +51,7 @@ public class fragment_alerts extends Fragment {
         alerts.add(new Alert("Tornado warning", "all of them"));
 
 
+        //Assigning adapter for the recyclerview
         AlertAdapter adapter = new AlertAdapter(alerts);
 
         recyclerView.setAdapter(adapter);

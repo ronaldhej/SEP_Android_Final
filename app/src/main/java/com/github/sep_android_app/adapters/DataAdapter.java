@@ -19,6 +19,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         this.RoomData = RoomData;
     }
 
+    //Creating template for items
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -27,12 +28,14 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    //Inserting data into instances of the item
     @Override
     public void onBindViewHolder(@NonNull DataAdapter.ViewHolder holder, int position) {
         holder.date.setText(RoomData.get(position).getDate());
         holder.value.setText(RoomData.get(position).getValue());
     }
 
+    //Getting the fields for use in binding
     @Override
     public int getItemCount() {
         return RoomData.size();
