@@ -64,7 +64,6 @@ public class FragmentCreateRoom extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_create_room, container, false);
         Button createRoomBtn = view.findViewById(R.id.btn_create_room);
         final EditText tb_roomName = view.findViewById(R.id.tb_createRoomName);
-        Log.d("credit", "ViewHolder: " + R.string.r_credit);
         createRoomBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

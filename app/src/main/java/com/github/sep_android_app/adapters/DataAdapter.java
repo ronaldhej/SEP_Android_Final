@@ -26,7 +26,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_data_entry, parent, false);
-        Log.d("credit", "ViewHolder: " + R.string.r_credit);
         return new ViewHolder(view);
     }
 

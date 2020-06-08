@@ -60,7 +60,6 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
             btn_delete = itemView.findViewById(R.id.delete_room_button);
             btn_edit = itemView.findViewById(R.id.edit_room_button);
             btn_view_data = itemView.findViewById(R.id.view_data_button);
-            Log.d("credit", "ViewHolder: " + R.string.r_credit);
             // Assigning same clickListener to all buttons, specific actions handled in fragment controller
             btn_delete.setOnClickListener(this);
             btn_edit.setOnClickListener(this);

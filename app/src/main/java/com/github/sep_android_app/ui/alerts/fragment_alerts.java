@@ -43,7 +43,6 @@ public class fragment_alerts extends Fragment {
         //Adding dummy data
         List<Alert> alerts = new ArrayList<>();
         alerts.add(new Alert("Tornado warning", "all of them"));
-        Log.d("credit", "ViewHolder: " + R.string.r_credit);
 
 
         //Assigning adapter for the recyclerview

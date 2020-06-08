@@ -57,17 +57,17 @@ public class fragment_rooms extends Fragment implements RoomAdapter.onClickListe
         recyclerView = view.findViewById(R.id.recyclerViewRoom);
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rooms.add(new Room("Cellar"));
 
         adapter = new RoomAdapter(rooms, this);
         recyclerView.setAdapter(adapter);
         mainFab = requireActivity().findViewById(R.id.main_fab);
-        Log.d("credit", "ViewHolder: " + R.string.r_credit);
         mainFab.setImageResource(R.drawable.ic_add);
         // Setting specific FAB onClick
         mainFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(getView()).navigate(R.id.action_nav_rooms_to_fragmentCreateRoom);
+                Navigation.findNavController(requireView()).navigate(R.id.action_nav_rooms_to_fragmentCreateRoom);
             }
         });
         mainFab.show();
