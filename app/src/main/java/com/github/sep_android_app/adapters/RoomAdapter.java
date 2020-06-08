@@ -1,5 +1,6 @@
 package com.github.sep_android_app.adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
 
-    private List<Room> rooms;
+    public List<Room> rooms;
     private onClickListener onClickListener;
 
     public RoomAdapter(List<Room> rooms, onClickListener onClickListener) {
@@ -77,4 +78,5 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
     public interface onClickListener {
         void onClick(int position, View view);
     }
+
 }

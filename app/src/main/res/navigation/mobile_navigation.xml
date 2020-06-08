@@ -35,6 +35,12 @@
         <action
             android:id="@+id/action_nav_rooms_to_fragment_room_data"
             app:destination="@id/fragment_room_data" />
+        <argument
+            android:name="createdRoomName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_rooms_to_fragmentCreateRoom"
+            app:destination="@id/fragmentCreateRoom" />
     </fragment>
 
     <fragment
@@ -50,6 +56,7 @@
         android:label="@string/menu_notifications"
         tools:layout="@layout/fragment_notifications" >
     </fragment>
+
     <fragment
         android:id="@+id/fragment_room_data"
         android:name="com.github.sep_android_app.ui.rooms.fragment_room_data"
@@ -59,5 +66,15 @@
         <argument
             android:name="roomName"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCreateRoom"
+        android:name="com.github.sep_android_app.ui.EditAndCreateFragments.FragmentCreateRoom"
+        tools:layout="@layout/fragment_create_room"
+        android:label="FragmentCreateRoom" >
+        <action
+            android:id="@+id/action_fragmentCreateRoom_to_nav_rooms"
+            app:destination="@id/nav_rooms" />
+        <argument android:name="roomAdapter" />
     </fragment>
 </navigation>

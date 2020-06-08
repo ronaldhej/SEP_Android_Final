@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,13 +42,6 @@ public class fragment_alerts extends Fragment {
 
         //Adding dummy data
         List<Alert> alerts = new ArrayList<>();
-        alerts.add(new Alert("Tornado warning", "all of them"));
-        alerts.add(new Alert("fire", "bathroom"));
-        alerts.add(new Alert("flood", "kitchen"));
-        alerts.add(new Alert("Too hot", "everywhere"));
-        alerts.add(new Alert("Tornado warning", "bruh"));
-        alerts.add(new Alert("Too cold", "ya boi daniel"));
-        alerts.add(new Alert("Too humid", "Damn daniel"));
         alerts.add(new Alert("Tornado warning", "all of them"));
 
 
